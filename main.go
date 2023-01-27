@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
+
+//if a variable is declared here then it will be globally accessible to all the functions
 
 func main() {
 	var conferenceName = "Go Conference"
@@ -70,13 +71,6 @@ func greetUsers(conferenceName string, conferenceTickets int, remainingTickets u
 	fmt.Printf("Welcome to our %v application \n", conferenceName)
 	fmt.Printf("We have total %v tickets but only %v are remaining!\n", conferenceTickets, remainingTickets)
 	fmt.Println("You can easily get your tickets here!\n")
-}
-func validateUserInput(firstName string, lastName string, userEmail string, userTickets uint, remainingTickets uint) (bool, bool, bool) {
-	var isValidName = len(firstName) >= 2 && len(lastName) >= 2
-	var isValidEmail = strings.Contains(userEmail, "@")
-	var isValidTicketNumber = userTickets > 0 && userTickets <= remainingTickets
-
-	return isValidName, isValidEmail, isValidTicketNumber
 }
 
 func getUserInput() (string, string, string, int, uint) {
