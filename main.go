@@ -9,8 +9,7 @@ func main() {
 	var conferenceName = "Go Conference"
 	const conferenceTickets = 50
 	var remainingTickets uint = 50
-	fmt.Println("Welcome to the", conferenceName, "application")
-	fmt.Println("We have total", conferenceTickets, "but only", remainingTickets, "are remaining!")
+	greetUsers(conferenceName, conferenceTickets, remainingTickets)
 
 	for {
 		var firstName string
@@ -81,4 +80,11 @@ func main() {
 
 	}
 
+}
+
+// functions in Go
+func greetUsers(conferenceName string, conferenceTickets int, remainingTickets uint) {
+	fmt.Printf("Welcome to our %v application \n", conferenceName)
+	fmt.Printf("We have total %v tickets but only %v are remaining!\n", conferenceTickets, remainingTickets)
+	fmt.Println("You can easily get your tickets here!\n")
 }
