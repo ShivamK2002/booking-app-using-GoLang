@@ -6,6 +6,13 @@ import (
 
 //if a variable is declared here then it will be globally accessible to all the functions
 
+type userdata struct {
+	firstName       string
+	lastName        string
+	userEmail       string
+	numberOfTickets uint
+}
+
 func main() {
 	var conferenceName = "Go Conference"
 	const conferenceTickets = 50
