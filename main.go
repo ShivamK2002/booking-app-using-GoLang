@@ -56,6 +56,8 @@ func main() {
 			// }
 			fmt.Printf("These are all the bookings: %v\n", bookings)
 
+			go sendTicket(userTickets, firstName, lastName, userEmail)
+
 			//conditionals
 			if remainingTickets == 0 {
 				//end program
@@ -99,4 +101,11 @@ func getUserInput() (string, string, string, int, uint) {
 	fmt.Scan(&userEmail)
 
 	return firstName, lastName, userEmail, userPhone, userTickets
+}
+
+func sendTicket(userTickets uint, firstName string, lastName string, userEmail string) {
+	var ticket = fmt.Sprintf("%v tickets for %v %v", userTickets, firstName, lastName)
+	fmt.Println("############################################")
+	fmt.Printf("Sending ticket %v to email address %v\n", ticket, userEmail)
+	fmt.Println("############################################")
 }
