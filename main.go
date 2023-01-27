@@ -1,7 +1,8 @@
 package main
 
-import "fmt"
-
+import (
+	"fmt"
+)
 func main() {
 	var conferenceName ="Go Conference"
 	const conferenceTickets=50
@@ -30,6 +31,13 @@ func main() {
 	fmt.Println("Enter your email id: ")
 	fmt.Scan(&userEmail)
 	
+	//for more number of bookings than available
+	if userTickets > remainingTickets {
+		fmt.Printf("We only have %v tickets remaining therefore can't book %v tickets\n",remainingTickets,userTickets)
+		break
+	}
+
+
 	//booking logic
 	remainingTickets= remainingTickets-userTickets
 	
@@ -53,11 +61,23 @@ func main() {
 	fmt.Printf("Thanks %v %v for booking %v tickets with us! You will receive your tickets on %v and %v.\n",firstName,lastName,userTickets,userPhone,userEmail)
 	fmt.Printf("Hurry! Tell your friends that only %v tickets are remaining.\n",remainingTickets)
 	
+	
+    //loops
+	//no multiple loops in GO
+	// firstNames= []string{}
+	// for index, bookings:=range bookings{
+	// 	var names= strings.Fileds(booking)
+
+	// }
 	fmt.Printf("These are all the bookings: %v\n",bookings)
+	
 
-//loops
-//no multiple loops in GO
-
+	//conditionals	
+	if remainingTickets==0{
+		//end program
+		fmt.Println("Our conference is booked out!")
+		break
+	}
 
 }
 
