@@ -30,9 +30,8 @@ func main() {
 		fmt.Scan(&userEmail)
 
 		//To check if user enters correct values or not(user input validation)
-		var isValidName = len(firstName) >= 2 && len(lastName) >= 2
-		var isValidEmail = strings.Contains(userEmail, "@")
-		var isValidTicketNumber = userTickets > 0 && userTickets <= remainingTickets
+
+		isValidName, isValidEmail, isValidTicketNumber := validateUserInput(firstName, lastName, userEmail, userTickets, remainingTickets)
 
 		if isValidName && isValidEmail && isValidTicketNumber {
 			//booking logic
@@ -87,4 +86,11 @@ func greetUsers(conferenceName string, conferenceTickets int, remainingTickets u
 	fmt.Printf("Welcome to our %v application \n", conferenceName)
 	fmt.Printf("We have total %v tickets but only %v are remaining!\n", conferenceTickets, remainingTickets)
 	fmt.Println("You can easily get your tickets here!\n")
+}
+func validateUserInput(firstName string, lastName string, userEmail string, userTickets uint, remainingTickets uint) (bool, bool, bool) {
+	var isValidName = len(firstName) >= 2 && len(lastName) >= 2
+	var isValidEmail = strings.Contains(userEmail, "@")
+	var isValidTicketNumber = userTickets > 0 && userTickets <= remainingTickets
+
+	return isValidName, isValidEmail, isValidTicketNumber
 }
